@@ -20,7 +20,9 @@ FORMS += \
     dlgbiji.ui
 
 DISTFILES += \
-    main.qml
+    main.qml \
+    DlgQuickuiForm.ui.qml \
+    DlgQuickui.qml
 
 RESOURCES += \
     qrc1.qrc

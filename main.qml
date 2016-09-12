@@ -263,23 +263,15 @@ ApplicationWindow
 
                 delegate: Item
                 {
-
                     x: 5
                     width: 80
                     height: 40
 
                     MouseArea
                     {
-                        //   id: mouseArea2
-                        anchors.rightMargin: 0
-                        anchors.bottomMargin: 0
-                        anchors.leftMargin: 0
-                        anchors.topMargin: 0
                         anchors.fill: parent
-                        onClicked:
-                        {
-                            colorCode:"red"
-                        }
+                        onClicked: myRect.state =="clicked" ? myRect.state="" : myRect.state="clicked";
+
                         Row
                         {
                             id: row1
@@ -292,9 +284,16 @@ ApplicationWindow
 
                             Text
                             {
+                                id:myRect
                                 text: name
                                 font.bold: true
                                 anchors.verticalCenter: parent.verticalCenter
+                                states:[
+                                    State{
+                                        name:"clicked"
+                                        PropertyChanges{ target: myRect; color:"red"}
+                                    }
+                                ]
                             }
                             spacing: 10
 
