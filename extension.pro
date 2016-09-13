@@ -1,5 +1,6 @@
 QT += widgets
 QT += qml
+QT +=
 
 HEADERS       = finddialog.h \
     dlgrenwu.h \

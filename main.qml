@@ -1,13 +1,22 @@
 import QtQuick 2.2
 import QtQuick.Controls 1.1
 import CPlusPlus.Test 1.0
-
+import QtWebView 1.1
 ApplicationWindow
 {
     visible: true
     width: 640
     height: 480
     title: qsTr("测试QML于C++的交互")
+
+
+    Keys.enabled: true
+    Keys.onPressed:{
+        radioButton1.name = event.key-Qt.Key_0;
+        console.log( "[qml] Rating is: " + item0.name );
+    }
+
+
 
     menuBar: MenuBar
     {
@@ -263,9 +272,16 @@ ApplicationWindow
 
                 delegate: Item
                 {
+                id:item0
                     x: 5
                     width: 80
                     height: 40
+                    Keys.enabled:true
+
+                    Keys.onPressed:{
+                        radioButton1.name = event.key-Qt.Key_0;
+                        console.log( "[qml] Rating is: " + item0.name );
+                    }
 
                     MouseArea
                     {
@@ -300,7 +316,42 @@ ApplicationWindow
 
                         }
                     }
-                }
+            }
+        }
+        Text {
+            id: text1
+            x: 101
+            y: 0
+            width:100
+            height:100
+           // anchors.fill: parent
+            opacity: 0.3
+
+            baseUrl: "http://qt-project.org/index.html"
+        }
+
+        WebView {
+            id: text1
+            x: 101
+            y: 0
+            width:100
+            height:100
+           // anchors.fill: parent
+            opacity: 0.3
+
+            baseUrl: "http://qt-project.org/index.html"
+        }
+            Image {
+                id: image1
+                x: 0
+                y: 0
+                width:100
+                height:100
+                fillMode: Image.PreserveAspectFit
+               // anchors.fill: parent
+                opacity: 0.3
+
+                source: "http://upload-images.jianshu.io/upload_images/1378637-e7b46354b363bba6.jpg"
             }
       }
 
